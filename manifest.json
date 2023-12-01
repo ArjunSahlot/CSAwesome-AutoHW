@@ -1,0 +1,23 @@
+{
+	"manifest_version": 3,
+	"name": "CSAwesome Auto-MCQ",
+	"version": "0.0.1",
+	"description": "A chrome extension that completes all the multiple choice exercises on the runestone.academy website.",
+	"permissions": [],
+	"host_permissions": ["https://runestone.academy/*"],
+	"content_scripts": [
+		{
+			"matches": ["https://runestone.academy/*"],
+			"js": ["src/content.js"]
+		}
+	],
+	"action": {
+		"default_popup": "src/popup.html",
+		"default_title": "CSAwesome Auto-MCQ"
+	},
+	"icons": {
+		"16": "assets/icon16.jpg",
+		"32": "assets/icon32.jpg",
+		"128": "assets/icon128.jpg"
+	}
+}
