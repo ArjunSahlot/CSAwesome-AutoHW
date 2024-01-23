@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"name": "CSAwesome Auto-MCQ",
+	"name": "CSAwesome AutoHW",
 	"version": "0.0.1",
 	"description": "A chrome extension that completes all the multiple choice exercises on the runestone.academy website.",
 	"permissions": ["scripting"],
