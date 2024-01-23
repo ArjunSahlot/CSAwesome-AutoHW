@@ -1,10 +1,10 @@
 // DRAGNDROP CODE
 var MAX_DRAGNDROP_LENGTH = 5;
-var dropdowns = [];
+var dragndrops = [];
 
 for (var parson of document.getElementsByClassName("parsons")) {
     if (parson?.classList?.length == 1) {
-        dropdowns.push(parson);
+        dragndrops.push(parson);
     }
 }
 
@@ -51,13 +51,18 @@ function combinations(valuesArray) {
     return combi;
 }
 
-for (var i = 0; i < dropdowns.length; i++) {
-    var dropdown = dropdowns[i];
-    var source = dropdown.getElementsByClassName("source")[0];
-    var answer = dropdown.getElementsByClassName("answer")[0];
-    var submitButton = dropdown.getElementsByClassName("btn btn-success")[0];
+for (var i = 0; i < dragndrops.length; i++) {
+    var dragndrop = dragndrops[i];
+    var source = dragndrop.getElementsByClassName("source")[0];
+    var answer = dragndrop.getElementsByClassName("answer")[0];
+    var a = 1;
+    while (!answer) {
+        answer = dragndrop.getElementsByClassName("answer" + a)[0];
+        a++;
+    }
+    var submitButton = dragndrop.getElementsByClassName("btn btn-success")[0];
 
-    const infoBox = dropdown.getElementsByClassName("alert")[0];
+    const infoBox = dragndrop.getElementsByClassName("alert")[0];
     if (infoBox?.classList.contains("alert-info")) {
         continue;
     }
@@ -68,7 +73,7 @@ for (var i = 0; i < dropdowns.length; i++) {
     }
 
     if (blocks.length > MAX_DRAGNDROP_LENGTH) {
-        alert(`Too many blocks left in dropdown ${i + 1}! Please solve ${blocks.length - MAX_DRAGNDROP_LENGTH} more blocks or else your browser will crash!`);
+        alert(`Too many blocks left in Drag-N-Drop ${i + 1}! Please solve ${blocks.length - MAX_DRAGNDROP_LENGTH} more blocks or else your browser will crash!`);
         break;
     }
 
@@ -86,9 +91,7 @@ for (var i = 0; i < dropdowns.length; i++) {
         const permutations = permute(miniSet);
         permutations.push([]);
         for (var j = 0; j < permutations?.length; j++) {
-            for (var block of answer.children) {
-                block.remove();
-            }
+            answer.replaceChildren();
 
             for (var block of presetBlocks) {
                 answer.appendChild(block);
@@ -100,8 +103,8 @@ for (var i = 0; i < dropdowns.length; i++) {
 
             submitButton.click();
 
-            const infoBox = dropdown.getElementsByClassName("alert")[0];
-            if (infoBox.classList.contains("alert-info")) {
+            const infoBox = dragndrop.getElementsByClassName("alert")[0];
+            if (infoBox.classList.contains("alert-info") || infoBox.innerHTML.includes("These blocks are not indented correctly.")) {
                 solved = true;
                 break;
             }
@@ -109,7 +112,7 @@ for (var i = 0; i < dropdowns.length; i++) {
     }
 
     if (!solved) {
-        alert(`Dropdown ${i + 1} could not be solved!`);
+        alert(`Drag-N-Drop ${i + 1} could not be solved!`);
     }
 }
 
