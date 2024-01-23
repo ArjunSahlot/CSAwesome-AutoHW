@@ -3,9 +3,10 @@
 	<head>
 		<title>Answer all MCQs</title>
 		<style>
-			#answer {
+			button {
 				background-color: #4caf50;
 				border: none;
+                margin: 10px;
 				color: white;
 				padding: 15px;
 				text-align: center;
@@ -19,13 +20,13 @@
 				transition: transform 0.2s ease, box-shadow 0.2s ease;
 			}
 
-			#answer:hover {
+			button:hover {
 				background-color: #3e8e41;
 				transform: translateY(-2px);
 				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 			}
 
-			#answer:active {
+			button:active {
 				background-color: #3fa048;
 				transform: translateY(0px);
 				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -33,7 +34,8 @@
 		</style>
 	</head>
 	<body>
-		<button id="answer">Answer all MCQs</button>
+		<button id="answermcq">Answer all MCQs</button>
+		<button id="answerdd">Answer all Dropdowns</button>
 		<script src="popup.js"></script>
 	</body>
 </html>
