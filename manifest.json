@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "CSAwesome AutoHW",
 	"version": "0.0.1",
-	"description": "A chrome extension that completes all the multiple choice exercises on the runestone.academy website.",
+	"description": "An all encapsulating chrome extension which can do your AP Computer Science homework like a champ.",
 	"permissions": ["scripting"],
 	"host_permissions": ["https://runestone.academy/*"],
 	"content_scripts": [
